@@ -1,0 +1,45 @@
+local distro_check = import "../../../configs/distro_check.libjsonnet";
+local desktop_packages = import "categories/desktop.libjsonnet";
+
+function(suite,
+         product,
+         temp_dir,
+         vendor_packages,
+         linux_override,
+         u_boot_override,
+) desktop_packages(suite,
+                product,
+                temp_dir,
+                vendor_packages,
+                linux_override,
+                u_boot_override,
+) + {
+    mmdebstrap+: {
+        packages+:
+        [
+            "gnome-terminal",
+            "gnome-screenshot",
+            "gnome-system-monitor",
+            "gnome-control-center",
+            "gnome-settings-daemon",
+            "gnome-session",
+        ] +
+
+(if distro_check(suite) == "debian"
+then
+        [
+            "task-gnome-desktop",
+        ]
+else if distro_check(suite) == "ubuntu"
+then
+        [
+            "gnome-session",
+        ]
+else
+        []
+),
+        "customize-hooks"+: [
+            // Here you can add any custom hooks if needed
+        ]
+    },
+}

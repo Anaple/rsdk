@@ -5,6 +5,6 @@
         "product_full_name": "Radxa ZERO 2 PRO",
         "soc": "a311d",
         "supported_suite": ["jammy"],
-        "supported_edition": ["xfce"]
+        "supported_edition": ["gnome"]
     }
 ]
