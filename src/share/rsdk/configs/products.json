@@ -4,7 +4,7 @@
         "product_name": "Radxa ZERO 2PRO",
         "product_full_name": "Radxa ZERO 2 PRO",
         "soc": "a311d",
-        "supported_suite": ["bookworm","jammy"],
-        "supported_edition": ["kde"]
+        "supported_suite": ["jammy"],
+        "supported_edition": ["xfce"]
     }
 ]
